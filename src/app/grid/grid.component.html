@@ -1,0 +1,17 @@
+<div>
+    <div>
+        <div class="div-wrapper">
+            <h2>Enter Country</h2>
+            <input #box (keyup)="getCountries(box.value)" value="{{selectedCountry}}" class="search-box" 
+                    placeholder="Enter Country">
+            <span [hidden]="this.state != StateType.Loading">&nbsp;&nbsp;  Loading...</span>
+        </div>
+        <div [hidden]="this.state != StateType.HasResults" class="result-box">
+            <div *ngFor="let ct of countries"  (click)="selectCountry(ct)" class="row-result">
+                <span> 
+                    {{ct}} 
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
